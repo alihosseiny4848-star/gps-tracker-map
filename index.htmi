@@ -1,12 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ردیاب GPS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ردیاب GPS من</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+body { margin:0; font-family:Tahoma,sans-serif; background:#f1f5f9; }
+header { background:#12305a; color:white; padding:16px; text-align:center; }
+#status { background:white; margin:12px; padding:14px; border-radius:8px; }
+#map { height:70vh; min-height:350px; margin:12px; border-radius:8px; }
+</style>
 </head>
 <body>
-  <h1>ردیاب GPS من</h1>
-  <p>سایت با موفقیت ساخته شد.</p>
+<header>
+<h2>ردیاب GPS من</h2>
+<div>سامانه نمایش موقعیت خودرو</div>
+</header>
+<div id="status">در حال آماده‌سازی نقشه...</div>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('map').setView([32.4279, 53.6880], 5);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+document.getElementById('status').textContent =
+  'نقشه آماده است؛ اتصال ردیاب در مرحله بعد انجام می‌شود.';
+</script>
 </body>
 </html>
